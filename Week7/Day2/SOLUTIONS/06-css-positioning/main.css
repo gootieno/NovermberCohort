@@ -5,6 +5,8 @@ html, body {
 .container {
     background-color: #2b2d2f;
     position: relative;
+
+    height: 2000px;
 }
 
 .element {
@@ -15,57 +17,61 @@ html, body {
     font-size: 36px;
 }
 
+/* z index default is 0 */
+
 #yellow-box {
     background-color: #ffff00;
-    /* Fill these in
-    position: ;
+    
+    position: static;
     bottom: 0;
-    left: 0;
+    left: 100px;
     right: 0;
     top: 0;
-    z-index: ;
+    z-index: -10000;
 }
 
 #pink-box {
     background-color: #ff69b4;
-    /* Fill these in
-    position: ;
+    
+    position: absolute;
     bottom: 0;
-    left: 0;
+    left: 250px;
     right: 0;
-    top: 0;
-    z-index: ;
+    top: 100px;
+    /* margin-top: 1000px; */
+    z-index:2 ;
 }
 
 #blue-box {
     background-color: #00eeee;
-    /* Fill these in
-    position: ;
+   
+    position: relative;
     bottom: 0;
-    left: 0;
+    left: 100px;
     right: 0;
-    top: 0;
-    z-index: ;
+    top: 200px;
+    z-index:3 ;
+
+    opacity: 0.5;
 }
 
 #red-box {
     background-color: #ff0000;
-    /* Fill these in
-    position: ;
+
+    position: sticky;
     bottom: 0;
     left: 0;
     right: 0;
-    top: 0;
-    z-index: ;
+    top: 100px;
+    z-index: 1;
 }
 
 #orange-box {
     background-color: #ffa500;
-    /* Fill these in
-    position: ;
+    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     top: 0;
-    z-index: ;
+    z-index: -4;
 }
