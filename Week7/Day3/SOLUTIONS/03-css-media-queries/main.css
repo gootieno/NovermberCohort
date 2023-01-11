@@ -86,12 +86,73 @@ header {
 
 /* Your code here */
 
+@media screen and (min-width: 821px){
+    .content {
+        flex-direction: row;
+        /* border: 3px solid red; */
+    }
+
+    
+}
+
+@media screen and (min-width: 821px){
+    .content {
+        flex-direction: row;
+        /* border: 3px solid red; */
+    }
+
+    
+}
+
 /* ----- Phase 1 - Wide Screen ----- */
 
-/* Your code here */
+
 
 /* ===== PRINTING ===== */
 
 /* Phase 2 */
 
 /* Your code here */
+@media print {
+    .sidebar, .image-box, header {
+        display: none;
+    }
+
+    .story-box {
+        padding: 0;
+        border-radius: 0;
+        background-color: white;
+        filter: none;
+    }
+}
+
+
+/* bonus code here */
+@media print{
+    .page {
+        flex-direction: row;
+    }
+
+    /* bonus */
+    .sidebar, header {
+        display: none;
+    }
+
+    .story-box {
+        padding: 0;
+        border-radius: 0;
+        background-color: white;
+        filter: none;
+    }
+
+    .image-box {
+        /* the display property was still persisting up top so we would 
+        have to unset or overwrite the display property to see our bonus code 
+        overwrite the initial print code :) */
+        display: unset;
+        position: absolute;
+        width: 80px;
+        right: 60px;
+        top: 50px
+    }
+}
