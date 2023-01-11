@@ -30,4 +30,9 @@ p.more {
   display: none;
 }
 
+.cal td:not(td[class=""], td[class="today"]){
+  color: red;
+  opacity: .4;
+}
+
 /* Your code here */
