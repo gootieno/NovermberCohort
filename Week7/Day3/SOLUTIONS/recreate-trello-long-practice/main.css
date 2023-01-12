@@ -124,6 +124,8 @@ body {
   justify-content: space-between;
 }
 
+
+
 /* Responsive Styles */
 
 @media screen and (max-width: 730px) {
@@ -218,6 +220,63 @@ body {
   top: 5px;
 }
 
+
 .board-1 {
-  background-color: red;
+  background-image: url('./board-backgrounds/board-1-background.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.board-2 {
+  background-image: url('./board-backgrounds/board-2-background.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.board-3 {
+  background-image: url('./board-backgrounds/board-3-background.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.board-4 {
+  background-image: url('./board-backgrounds/board-4-background.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.board-5 {
+  background-image: url('./board-backgrounds/board-5-background.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.board-6 {
+  background-image: url('./board-backgrounds/board-6-background.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.board-7 {
+  background-image: url('./board-backgrounds/board-8-background.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.board-9 {
+  background-image: url('./board-backgrounds/board-9-background.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.board-10 {
+  background-image: url('./board-backgrounds/board-10-background.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.board-4 {
+  background-image: url('./board-backgrounds/board-3-background.jpg');
+  background-position: center;
+  background-size: cover;
 }
