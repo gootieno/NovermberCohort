@@ -59,6 +59,31 @@ const server = http.createServer((req, res) => {
       return res.end(resBody);
     }
 
+    // two options for this match: /dogs/:dogId && /dogs/new
+    if (req.method === "GET" && req.url.startsWith("/dogs")) {
+      const urlParts = req.url.split("/");
+      console.log("url parts ", urlParts);
+
+      if (urlParts[2] !== "new") {
+        // console.log("not new");
+
+        const dogId = urlParts[2];
+        const resBody = `Dog details for dogId: ${dogId}`;
+
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "text/html");
+        return res.end(resBody);
+      }
+    }
+
+    if (req.method === "POST" && req.url === "/dogs") {
+      const dogId = getNewDogId();
+
+      res.statusCode = 302;
+      res.setHeader("Location", `/dogs/${dogId}`);
+      return res.end();
+    }
+
     // Do not edit below this line
     // Return a 404 response when there is no matching route handler
     res.statusCode = 404;
