@@ -17,7 +17,6 @@ const server = http.createServer((req, res) => {
   });
 
   // When the request is finished processing the entire body
-  // Parse example: affiliate=nasa&query=Mars+Rover%21
   req.on("end", () => {
     // Parsing the body of the request
     if (reqBody) {
@@ -27,18 +26,14 @@ const server = http.createServer((req, res) => {
         .map(([key, value]) => [key, value.replace(/\+/g, " ")]) // [[affiliate,nasa],[query,Mars Rover%21]]
         .map(([key, value]) => [key, decodeURIComponent(value)]) // [[affiliate,nasa],[query,Mars Rover!]]
         .reduce((acc, [key, value]) => {
+          // [[affiliate,nasa],[query,Mars Rover!]]
           acc[key] = value;
           return acc;
         }, {});
       console.log(req.body);
-
       /*
-        {
-          affiliate: nasa,
-          query: Mars Rover!
-        }
-
-      */
+      {affiliate: nasa, query: Mars Rover!}
+        */
     }
     // Do not edit above this line
 
@@ -53,37 +48,30 @@ const server = http.createServer((req, res) => {
 
     if (req.method === "GET" && req.url === "/dogs") {
       const resBody = "Dog Index";
-
       res.statusCode = 200;
       res.setHeader("Content-Type", "text/plain");
       return res.end(resBody);
     }
 
-    // two options for this match: /dogs/:dogId && /dogs/new
-    if (req.method === "GET" && req.url.startsWith("/dogs")) {
-      const urlParts = req.url.split("/");
-      console.log("url parts ", urlParts);
-
-      if (urlParts[2] !== "new") {
-        // console.log("not new");
-
-        const dogId = urlParts[2];
-        const resBody = `Dog details for dogId: ${dogId}`;
-
-        res.statusCode = 200;
-        res.setHeader("Content-Type", "text/html");
-        return res.end(resBody);
-      }
-    }
-
     if (req.method === "POST" && req.url === "/dogs") {
-      const dogId = getNewDogId();
-
       res.statusCode = 302;
+
+      const dogId = getNewDogId();
       res.setHeader("Location", `/dogs/${dogId}`);
       return res.end();
     }
 
+    if (req.method === "GET" && req.url.startsWith("/dogs")) {
+      const urlParts = req.url.split("/");
+
+      console.log("url parts ", urlParts);
+      if (urlParts[urlParts.length - 1] !== "new") {
+        const dogId = urlParts[urlParts.length - 1];
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "text/plain");
+        return res.end(`Dog details for dogId: ${dogId}`);
+      }
+    }
     // Do not edit below this line
     // Return a 404 response when there is no matching route handler
     res.statusCode = 404;
