@@ -10,7 +10,9 @@ Paste your code for fetch requests here once you finish each task.
 */
 
 // Your code here
-
+fetch('/posts')
+  .then(res => res.text())
+  .then(res => console.log(JSON.parse(res)));
 
 
 /* =============================== Phase 2 ================================ */
@@ -20,3 +22,15 @@ Paste your code for fetch requests here once you finish each task.
 */
 
 // Your code here
+fetch('/posts', {
+  method: 'POST',
+  headers: {
+    "Content-Type": 'application/json'
+  },
+  body: JSON.stringify({
+    message: "posted"
+  })
+}).then(res => {
+  console.log(res);
+  return res
+}).then(res => res.json()).then(res => console.log(res));
