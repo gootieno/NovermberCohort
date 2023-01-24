@@ -1,5 +1,8 @@
 /****************************** ADD DOG BUTTON ******************************/
 const add = document.getElementById("add");
+
+console.log("add button ", add);
+
 add.addEventListener("click", async () => {
   try {
     const res = await fetch("https://dog.ceo/api/breeds/image/random");
@@ -8,8 +11,21 @@ add.addEventListener("click", async () => {
     const url = data.message; // URL of new dog image
 
     // log out everything
+    console.log("url ", url);
 
-    const ul = // get the ul
+    const urlParts = url.split("/");
+    console.log("url parts ", urlParts);
+
+    const dogBreed = urlParts[4];
+    console.log("dog breed ", dogBreed);
+
+    const ul = document.querySelector(".gallery > ul");
+
+    const listItem = document.createElement("li");
+    const figure = document.createElement("figure");
+    const img = document.createElement("img");
+    const figcaption = document.createElement("figcaption");
+
     /*
     <li>
         <figure>
@@ -19,6 +35,15 @@ add.addEventListener("click", async () => {
     </li>
 
     */
+
+    img.setAttribute("src", url);
+    figcaption.innerText = dogBreed;
+
+    figure.append(img, figcaption);
+
+    listItem.appendChild(figure);
+
+    ul.append(listItem);
     /*--------------- Get breed (Hint: Parse from URL) ---------------- */
     // Your code here
 
@@ -41,6 +66,11 @@ removeFirst.addEventListener("click", () => {
   // Your code here
   /*-------------------- Remove the first dog card --------------------- */
   // Your code here
+  const galleryUl = document.querySelector(".gallery ul");
+
+  const firstDog = galleryUl.children[0];
+
+  firstDog.remove();
 });
 
 /************************** REMOVE LAST DOG BUTTON ***************************/
@@ -50,4 +80,8 @@ removeLast.addEventListener("click", () => {
   // Your code here
   /*-------------------- Remove the last dog card ----------------------- */
   // Your code here
+  const allCards = document.querySelectorAll("ul > li");
+  const lastCard = allCards[allCards.length - 1];
+
+  lastCard.remove();
 });
