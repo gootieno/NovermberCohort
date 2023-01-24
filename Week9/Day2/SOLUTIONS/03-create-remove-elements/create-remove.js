@@ -21,7 +21,13 @@ add.addEventListener("click", async () => {
 
     const ul = document.querySelector(".gallery > ul");
 
+    // adding styles
+    ul.style.display = "flex";
+
     const listItem = document.createElement("li");
+
+    listItem.style.border = "2px solid red";
+
     const figure = document.createElement("figure");
     const img = document.createElement("img");
     const figcaption = document.createElement("figcaption");
