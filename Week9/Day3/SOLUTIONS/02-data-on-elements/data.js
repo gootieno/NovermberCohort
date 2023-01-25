@@ -13,7 +13,7 @@ const buildShoppingList = () => {
 
     const listItem = document.createElement("li");
     listItem.innerText = input.value;
-    listItem.setAttribute("data-type", type);
+    listItem.setAttribute("data-type", type); // giving a custom attribute to our elements
 
     shoppingListContainer.append(listItem);
 

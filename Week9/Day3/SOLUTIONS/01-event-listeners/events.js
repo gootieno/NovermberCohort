@@ -4,6 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
   const input = document.getElementById('red-input');
+
   const changeRed = e => {
     console.log(e);
     const text = input.value;
@@ -25,7 +26,9 @@ window.addEventListener('DOMContentLoaded', () => {
     ul.append(li)
     input.value = '';
   }
+
   addItem.addEventListener('click', addLi)
+  // addItem.removeEventListener('click', addLi);
 
 
   const section3 = document.getElementById('section-3');
