@@ -44,13 +44,13 @@ window.addEventListener('DOMContentLoaded', () => {
     addItem.removeEventListener('click', addLi);
     colorSelect.removeEventListener('change', changeColor);
 
+    // BONUS SECTION
     const button = document.createElement('button');
     const sectionFour = document.getElementById('section-4');
     sectionFour.append(button);
     button.style.height = '30px';
     button.innerText = 'Add Event Listeners'
 
-    // BONUS SECTION
     button.addEventListener('click', e => {
       button.class = 'add-button';
       input.addEventListener('input', changeRed);
