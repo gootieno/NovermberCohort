@@ -1,4 +1,5 @@
 const select = () => {
+
   /* Write queries for each of the following */
 
   /* Section 1 */
